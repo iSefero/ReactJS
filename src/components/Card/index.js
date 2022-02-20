@@ -22,11 +22,9 @@ function Card({
 		onPlus(obj);
 	};
 	const buildImgUrl = (imgLink) => {
-		// console.log(window.location.hostname);
-
-		let isProd = window.location.hostname === 'https://isefero.github.io';
-		console.log(window.location.hostname);
-		return window.location.hostname + (isProd ? '/ReactJS/' : '') + imgLink;
+		console.log('test1');
+		let isProd = window.location.hostname === 'isefero.github.io';
+		return (isProd ? '/ReactJS/' : '') + imgLink;
 	};
 
 	const onClickFavorite = () => {
