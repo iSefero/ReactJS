@@ -21,6 +21,13 @@ function Card({
 	const onClickPlus = () => {
 		onPlus(obj);
 	};
+	const buildImgUrl = (imgLink) => {
+		// console.log(window.location.hostname);
+
+		let isProd = window.location.hostname === 'https://isefero.github.io';
+		console.log(window.location.hostname);
+		return window.location.hostname + (isProd ? '/ReactJS/' : '') + imgLink;
+	};
 
 	const onClickFavorite = () => {
 		onFavorite(obj);
@@ -53,10 +60,10 @@ function Card({
 				<>
 					{onFavorite && (
 						<div className={styles.favorite} onClick={onClickFavorite}>
-							<img src={isFavorite ? '/img/liked.svg' : '/img/unliked.svg'} alt="Unliked" />
+							<img src={isFavorite ? 'img/liked.svg' : 'img/unliked.svg'} alt="Unliked" />
 						</div>
 					)}
-					<img src={imageUrl} alt="Sneakers" width={133} height={112} />
+					<img src={buildImgUrl(imageUrl)} alt="Sneakers" width={133} height={112} />
 					<h5>{title}</h5>
 					<div className="d-flex justify-between align-center">
 						<div className="d-flex flex-column">
@@ -66,7 +73,7 @@ function Card({
 						{onPlus && (
 							<img
 								className="cu-p"
-								src={isItemAdded(id) ? '/img/btn-cheked.svg' : '/img/btn-plus.svg'}
+								src={isItemAdded(id) ? 'img/btn-cheked.svg' : 'img/btn-plus.svg'}
 								alt="Plus"
 								onClick={onClickPlus}
 							/>
